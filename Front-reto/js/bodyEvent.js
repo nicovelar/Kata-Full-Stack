@@ -55,12 +55,13 @@ body.addEventListener("click", (e) => {
         subtarea.id = e.path[0].value
         subtarea.name = e.path[2].children[1].textContent;
         subtarea.idpadre = e.path[4].id;
-
+       
         let input = e.path[5].children[1][0];
         let btncrear = d.getElementById('crear' + e.path[4].id)
         let boton = d.getElementById('Actualizar' + e.path[4].id)
         btncrear.style.display = "none";
         boton.style.display = "";
+    
         input.value = subtarea.name
     }
     /**

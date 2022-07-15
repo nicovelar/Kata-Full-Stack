@@ -58,7 +58,7 @@ const mostrar = (listas) => {
                 <tbody>
                     ${resultadoSub}
                 </tbody>
-            </table>
+            </table> <br> <br>
         </div>
         `
     })

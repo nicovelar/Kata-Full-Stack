@@ -1,0 +1,29 @@
+button {
+    border-color: rgba(54, 53, 53, 0.281);
+    width: 100px;
+    height: 25px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.container {
+border-color: black;
+border-style: solid;
+border-radius: 0.5cm;
+max-width: 50%;
+margin: 0 auto;
+}
+
+h1 {
+    border-style: solid;
+    border-color: rgb(158, 156, 156);
+}
+
+table {
+    border-style: solid;
+    border-color: rgb(158, 156, 156);
+    margin: 0 auto;
+}
