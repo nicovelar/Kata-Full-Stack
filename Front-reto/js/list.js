@@ -98,12 +98,12 @@ const mostrar = (listas) => {
 
 //Borrar lista o crea una sub lista con una tarea
 body.addEventListener("click", (e) => {
+    
     if (e.target.classList[0] == "EliminarTarea") {
         eliminarTarea(e.target.parentElement.parentElement.id)
     }
     if (e.target.classList[0] == "agregarSubList") {
 
-        console.log(e.path[0].value);
         let dato = {
             nombre: e.target.previousElementSibling.value,
             id: e.path[0].value
@@ -111,6 +111,7 @@ body.addEventListener("click", (e) => {
         crearSubLista(dato)
 
     }
+   
     
     /**
      * eliminar subtarea
@@ -148,7 +149,17 @@ body.addEventListener("click", (e) => {
         }
 
     }
+    if(e.target.classList[0] == "actualizarSubList"){
+        e.preventDefault()
+        
+        let dato = {
+            id: subtarea.id,
+            idlist: e.path[2].id,
+            task: e.path[1][0].value,
+        }
+         editarSubTarea(dato)
 
+    }
 
 
 })
@@ -200,5 +211,27 @@ async function eliminarSubTarea(id) {
         res = await fetch(`${url}/listTask/${id}`, options)
         
     mostrarList() 
+}
+
+
+//Edita SubTarea
+async function editarSubTarea({ id , idlist, task }) {
+    
+        let options = {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json; charset=utf-8"
+            },
+            body: JSON.stringify({
+                completed: false,
+                name: task,
+                listaid: {
+                    id: idlist
+                }
+            })
+        },
+            res = await fetch(`${url}/listTask/${id}`, options)
+        mostrarList()
+
 }
 

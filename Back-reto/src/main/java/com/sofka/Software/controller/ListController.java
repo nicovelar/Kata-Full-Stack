@@ -23,9 +23,10 @@ public class ListController {
         public ListModel createList(@RequestBody ListModel lista){
             return listService.createList(lista);
         }
-
-         @DeleteMapping(value = "/task/{id}")
-         public void deleteTask(@PathVariable("id")Long id){
+        @DeleteMapping(value = "/task/{id}")
+        public void deleteTask(@PathVariable("id")Long id){
          listService.deleteTask(id);
          }
+
+
 }
